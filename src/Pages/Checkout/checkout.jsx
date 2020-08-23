@@ -6,6 +6,7 @@ import {
   selectCartItems,
   selectCartTotal,
 } from "../../Redux/Cart/cart.selectors.js";
+import CheckoutItem from '../../Components/CheckoutItem/checkoutitem.jsx';
 
 const Checkout = ({ cartItems, cartTotal }) => (
   <div className="checkout-page">
@@ -30,7 +31,9 @@ const Checkout = ({ cartItems, cartTotal }) => (
         <span>Remove</span>
       </div>
     </div>
-    {cartItems.map((cartItem) => cartItem.name)}
+    {cartItems.map((cartItem) => 
+      <CheckoutItem key={cartItem.id} cartItem={cartItem}/>
+    )}
     <div className="total"><span>£{cartTotal}</span></div>
   </div>
 );
