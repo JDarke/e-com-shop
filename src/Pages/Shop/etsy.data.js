@@ -1,4 +1,4 @@
-let shopId = "doyennediscordia";
+let shopId = "QualityRugStore"; // doyennediscordia
 let etsyShopURL = "https://openapi.etsy.com/v2/shops/" + shopId + "?includes=Sections,Listings&api_key=8olibkhxto6dfdptypg40bni";
 let etsyShopListingsURL = "https://openapi.etsy.com/v2/shops/" + shopId + "/listings/active?fields=title,price,listing_id,shop_section_id&includes=Images&api_key=8olibkhxto6dfdptypg40bni";
 const proxyurl = "https://cors-anywhere.herokuapp.com/";
@@ -49,7 +49,7 @@ const etsyQuery = async () => {
       }
     }
   }
-  ETSY_SHOP_DATA.push(...sections);
+  ETSY_SHOP_DATA.push(...sections.filter(section => section.items.length));  // Only add non-empty sections 
 };
 
 etsyQuery();
