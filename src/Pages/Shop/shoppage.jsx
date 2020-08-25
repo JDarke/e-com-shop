@@ -3,6 +3,7 @@ import {Route} from 'react-router-dom'
 import CollectionsOverview from '../../Components/CollectionsOverview/collectionsoverview';
 import CollectionPage from '../Collection/collection.jsx'
 
+
 const ShopPage = ( {match} ) => (
   <div className="shop-page">
       <Route exact path={`${match.path}`} component={CollectionsOverview} />
