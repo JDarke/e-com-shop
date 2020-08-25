@@ -1,5 +1,6 @@
 import SHOP_DATA from './shop.data.js'
 import ETSY_SHOP_DATA from './etsy.data.js'
+import ShopActionTypes from './shop.types'
 
 //console.log(SHOP_DATA);
 //console.log(ETSY_SHOP_DATA);
@@ -17,12 +18,16 @@ asyncFunc().then(data => console.log(data));
 //console.log(data);
 */
 const INITIAL_STATE = {
-    collections: SHOP_DATA
+    collections: null
 }
 
 const shopReducer = (state = INITIAL_STATE, action) => {
     switch(action.type) {
-
+        case ShopActionTypes.UPDATE_COLLECTIONS:
+            return {
+                ...state,
+                collections: action.payload
+            };
         default:
             return state;
     }
